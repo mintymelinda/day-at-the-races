@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://dyxtv21v5dcc"]
+
+[ext_resource type="Script" uid="uid://nv3l1crywd5u" path="res://character.gd" id="1_glpr6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_glpr6"]
+albedo_color = Color(0.0408189, 0.474249, 0.995659, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ofm2a"]
+material = SubResource("StandardMaterial3D_glpr6")
+size = Vector3(3, 3, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_glpr6"]
+size = Vector3(3, 3, 3)
+
+[node name="Character" type="RigidBody3D" groups=["player"]]
+collision_mask = 2
+gravity_scale = 0.0
+script = ExtResource("1_glpr6")
+speed = 10.0
+trip_scale = 0.1
+trip_chance = 0.1
+trip_animation_speed = 1.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_ofm2a")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_glpr6")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="TripTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="TripTimer" to="." method="_on_trip_timer_timeout"]

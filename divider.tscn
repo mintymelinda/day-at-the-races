@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4tueoytqwee5"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_u8gt7"]
+size = Vector3(0.5, 1, 54)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_u8gt7"]
+data = PackedVector3Array(-0.25, 0.5, 27, 0.25, 0.5, 27, -0.25, -0.5, 27, 0.25, 0.5, 27, 0.25, -0.5, 27, -0.25, -0.5, 27, 0.25, 0.5, -27, -0.25, 0.5, -27, 0.25, -0.5, -27, -0.25, 0.5, -27, -0.25, -0.5, -27, 0.25, -0.5, -27, 0.25, 0.5, 27, 0.25, 0.5, -27, 0.25, -0.5, 27, 0.25, 0.5, -27, 0.25, -0.5, -27, 0.25, -0.5, 27, -0.25, 0.5, -27, -0.25, 0.5, 27, -0.25, -0.5, -27, -0.25, 0.5, 27, -0.25, -0.5, 27, -0.25, -0.5, -27, 0.25, 0.5, 27, -0.25, 0.5, 27, 0.25, 0.5, -27, -0.25, 0.5, 27, -0.25, 0.5, -27, 0.25, 0.5, -27, -0.25, -0.5, 27, 0.25, -0.5, 27, -0.25, -0.5, -27, 0.25, -0.5, 27, 0.25, -0.5, -27, -0.25, -0.5, -27)
+
+[node name="Divider" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_u8gt7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConcavePolygonShape3D_u8gt7")

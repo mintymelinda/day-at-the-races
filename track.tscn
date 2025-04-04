@@ -1,0 +1,74 @@
+[gd_scene load_steps=12 format=3 uid="uid://cuciyrps8hb52"]
+
+[ext_resource type="PackedScene" uid="uid://c4tueoytqwee5" path="res://divider.tscn" id="1_mll3j"]
+[ext_resource type="Script" uid="uid://bcxgcl3c5k8fy" path="res://track.gd" id="1_phvr8"]
+[ext_resource type="PackedScene" uid="uid://dyxtv21v5dcc" path="res://character.tscn" id="2_phvr8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jr0rj"]
+albedo_color = Color(0.236888, 0.603124, 5.77569e-07, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_a61gl"]
+material = SubResource("StandardMaterial3D_jr0rj")
+size = Vector3(6, 1, 34)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_mll3j"]
+data = PackedVector3Array(-3, 0.5, 17, 3, 0.5, 17, -3, -0.5, 17, 3, 0.5, 17, 3, -0.5, 17, -3, -0.5, 17, 3, 0.5, -17, -3, 0.5, -17, 3, -0.5, -17, -3, 0.5, -17, -3, -0.5, -17, 3, -0.5, -17, 3, 0.5, 17, 3, 0.5, -17, 3, -0.5, 17, 3, 0.5, -17, 3, -0.5, -17, 3, -0.5, 17, -3, 0.5, -17, -3, 0.5, 17, -3, -0.5, -17, -3, 0.5, 17, -3, -0.5, 17, -3, -0.5, -17, 3, 0.5, 17, -3, 0.5, 17, 3, 0.5, -17, -3, 0.5, 17, -3, 0.5, -17, 3, 0.5, -17, -3, -0.5, 17, 3, -0.5, 17, -3, -0.5, -17, 3, -0.5, 17, 3, -0.5, -17, -3, -0.5, -17)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1roul"]
+size = Vector3(6, 1, 8)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_phvr8"]
+data = PackedVector3Array(-3, 0.5, 4, 3, 0.5, 4, -3, -0.5, 4, 3, 0.5, 4, 3, -0.5, 4, -3, -0.5, 4, 3, 0.5, -4, -3, 0.5, -4, 3, -0.5, -4, -3, 0.5, -4, -3, -0.5, -4, 3, -0.5, -4, 3, 0.5, 4, 3, 0.5, -4, 3, -0.5, 4, 3, 0.5, -4, 3, -0.5, -4, 3, -0.5, 4, -3, 0.5, -4, -3, 0.5, 4, -3, -0.5, -4, -3, 0.5, 4, -3, -0.5, 4, -3, -0.5, -4, 3, 0.5, 4, -3, 0.5, 4, 3, 0.5, -4, -3, 0.5, 4, -3, 0.5, -4, 3, 0.5, -4, -3, -0.5, 4, 3, -0.5, 4, -3, -0.5, -4, 3, -0.5, 4, 3, -0.5, -4, -3, -0.5, -4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5duux"]
+size = Vector3(6, 1, 12)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_bcvet"]
+data = PackedVector3Array(-3, 0.5, 6, 3, 0.5, 6, -3, -0.5, 6, 3, 0.5, 6, 3, -0.5, 6, -3, -0.5, 6, 3, 0.5, -6, -3, 0.5, -6, 3, -0.5, -6, -3, 0.5, -6, -3, -0.5, -6, 3, -0.5, -6, 3, 0.5, 6, 3, 0.5, -6, 3, -0.5, 6, 3, 0.5, -6, 3, -0.5, -6, 3, -0.5, 6, -3, 0.5, -6, -3, 0.5, 6, -3, -0.5, -6, -3, 0.5, 6, -3, -0.5, 6, -3, -0.5, -6, 3, 0.5, 6, -3, 0.5, 6, 3, 0.5, -6, -3, 0.5, 6, -3, 0.5, -6, 3, 0.5, -6, -3, -0.5, 6, 3, -0.5, 6, -3, -0.5, -6, 3, -0.5, 6, 3, -0.5, -6, -3, -0.5, -6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_phvr8"]
+size = Vector3(6.72473, 5.79452, 1.42675)
+
+[node name="Track" type="StaticBody3D"]
+collision_layer = 2
+script = ExtResource("1_phvr8")
+
+[node name="Raceway" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_a61gl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConcavePolygonShape3D_mll3j")
+
+[node name="Start" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20.9867)
+mesh = SubResource("BoxMesh_1roul")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20.9867)
+shape = SubResource("ConcavePolygonShape3D_phvr8")
+
+[node name="End" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -22.9977)
+mesh = SubResource("BoxMesh_5duux")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -22.9977)
+shape = SubResource("ConcavePolygonShape3D_bcvet")
+
+[node name="StartDivider" parent="." instance=ExtResource("1_mll3j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.24969, 0, -2.01514)
+
+[node name="Stop Area" type="Area3D" parent="." groups=["finish_line"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.824876, 0, -10.095)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stop Area" groups=["finish_line"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.976439, 3.55721, -17.6365)
+shape = SubResource("BoxShape3D_phvr8")
+
+[node name="EndDivider" parent="." instance=ExtResource("1_mll3j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.256, 0, -1.985)
+
+[node name="Character" parent="." instance=ExtResource("2_phvr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.3816, 19.2239)
+
+[connection signal="body_entered" from="Stop Area" to="." method="_on_stop_area_body_entered"]

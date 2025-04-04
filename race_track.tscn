@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://w7nk7ineryue"]
+
+[ext_resource type="Script" uid="uid://lycb4bl4uqfc" path="res://race_track.gd" id="1_c0s00"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sh3mr"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5duux"]
+material = SubResource("StandardMaterial3D_sh3mr")
+size = Vector3(7, 1, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_8itxh"]
+height = 10.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_c0s00"]
+size = Vector3(7, 2, 0.1)
+
+[node name="RaceTrack" type="Node3D"]
+script = ExtResource("1_c0s00")
+racers = Array[String](["Charles", "tsteine", "9names", "max", "jake"])
+
+[node name="FinishLine" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.22567, 0, 0)
+
+[node name="Finish" type="MeshInstance3D" parent="FinishLine"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.608, 0.112076, -17.5256)
+mesh = SubResource("BoxMesh_5duux")
+skeleton = NodePath("")
+
+[node name="StartPole" type="MeshInstance3D" parent="FinishLine"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7064, 5.38565, -17.5256)
+mesh = SubResource("CylinderMesh_8itxh")
+skeleton = NodePath("../Finish")
+
+[node name="EndPole" type="MeshInstance3D" parent="FinishLine"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.6153, 5.38565, -17.5256)
+mesh = SubResource("CylinderMesh_8itxh")
+skeleton = NodePath("../Finish")
+
+[node name="Tape" type="MeshInstance3D" parent="FinishLine"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0543, 8.78855, -17.5256)
+mesh = SubResource("BoxMesh_c0s00")
+skeleton = NodePath("../Finish")
